@@ -1,0 +1,11 @@
+
+.activation-panel {
+    width: 100%;
+    max-width: 420px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+     
+}
