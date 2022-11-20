@@ -91,11 +91,9 @@ const Register = () => {
 
       // navigate to activation page
       const userId = response.data.userId;
-    //   const userId = JSON.stringify(response.data.userId);
-      alert(userId)
-      navigate(`/activate`, {state: {userId: userId}});
-    
-    
+      //   const userId = JSON.stringify(response.data.userId);
+      alert(userId);
+      navigate(`/activate`, { state: { userId: userId } });
     } catch (err) {
       if (!err?.response) {
         setErrorMessage("No Server Response");
@@ -177,7 +175,11 @@ const Register = () => {
             <p hidden={validUserPassword}>Password Invalid</p>
           </div>
 
-          <button disabled={!validForm}>Register</button>
+          <button className="btn btn-primary" disabled={!validForm}>
+            Register
+          </button>
+          <hr />
+          <a href="/login"> Login </a>
         </form>
       </div>
     </>

@@ -34,7 +34,7 @@ function OffcanvasNavbar() {
         <div className="collapse navbar-collapse " id="navbarTogglerDemo01">
           <BrandTitle title="Brand" />
           {isLogin && <NavbarLinks />}
-          {isLogin === true ? <SignOutBtn /> : <AuthButtons />}
+          {/* {isLogin === true ? <SignOutBtn /> : <AuthButtons />} */}
           {isLogin === true && <DropdownNavbar userName ={'username'}/>}
          
         </div>

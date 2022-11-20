@@ -13,7 +13,7 @@ const LOGIN_URL = "/auth/login";
 
 const Login = () => {
   const [success, setSuccess] = useState(false);
-  const { setAuth, setIsLogin, isLogin } = useAuth();
+  const { setAuth, setIsLogin, isLogin,setUsername } = useAuth();
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -62,9 +62,11 @@ const Login = () => {
       if (response.status === 200) {
         const accessToken =  await response?.data?.accessToken;
         const roles = await response?.data.roles;
+        const name = await response.data.username;
         setSuccess(true);
         setAuth({ user, password, roles, accessToken });
         setIsLogin(true);
+        setUsername(name);
         setTokenToLocalStorage(accessToken);
   
         setUser("");

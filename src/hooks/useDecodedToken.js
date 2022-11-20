@@ -2,8 +2,17 @@ import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import useLocalStorage from "./useLocalStorage";
 
-const useDecodedToken = (token) => {
-    const [roles, setRoles] = useState([]);
+const useDecodedToken = () => {
+
+    const [token, setToken] = useState(useLocalStorage());
+
+    useEffect(()=>
+    {
+        // setToken();
+    },[])
+
+    return token.UserInfo.name;
+/*     const [roles, setRoles] = useState([]);
     const [username, setUsername] = useState();
 
     const updateRoles = (roles) => 
@@ -20,7 +29,7 @@ const useDecodedToken = (token) => {
         setUsername(decoded.UserInfo.username);
     },[])
 
-    return username;
+    return username; */
 };
 
 export default useDecodedToken;

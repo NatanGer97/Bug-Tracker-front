@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import useLocalStorage from "../../../../hooks/useLocalStorage";
 import DropdownHeader from "./DropdownHeader";
-import jwt_decode from 'jwt-decode'
+import jwt_decode from "jwt-decode";
+import DropdownItem from "./DropdownItem";
+import SignOutBtn from "../SignOutBtn";
 
 const DropdownNavbar = (props) => {
   const token = useLocalStorage();
   const decodedTokenInfo = jwt_decode(token);
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState("");
 
-  useEffect(()=>
-  {
+  useEffect(() => {
     if (decodedTokenInfo == null) setUsername(null);
-      const username = decodedTokenInfo.UserInfo.userName;
-      setUsername(username);
-  }, [])
-
+    const username = decodedTokenInfo.UserInfo.userName;
+    setUsername(username);
+  }, []);
 
   return (
     <div className="btn-group">
@@ -28,24 +28,23 @@ const DropdownNavbar = (props) => {
       >
         <i class="fa-regular fa-user"></i>
       </button>
+
+      {/* drop down content */}
       <ul className="dropdown-menu" aria-labelledby="Dropdown">
-        
-    <DropdownHeader header = {username} />
+        <DropdownHeader header={username} />
+        <DropdownItem title="Home" link="#" />
+        <DropdownItem title="Profile" link="#" />
+        <DropdownItem title="Team" link="#" />
         <li>
-          <a className="dropdown-item" href="#">
-            Menu item
-          </a>
+          <hr className="dropdown-divider" />
         </li>
+        <DropdownItem title="Tasks" link="#" />
+        <DropdownItem title="Bugs" link="#" />
+
         <li>
-          <a className="dropdown-item" href="#">
-            Menu item
-          </a>
+          <hr className="dropdown-divider" />
         </li>
-        <li>
-          <a className="dropdown-item" href="#">
-            Menu item
-          </a>
-        </li>
+        <SignOutBtn />
       </ul>
     </div>
   );

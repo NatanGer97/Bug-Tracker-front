@@ -9,7 +9,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // importing bootstrap js
 import "bootstrap/dist/js/bootstrap";
 
-// import * as mdb from 'mdb-ui-kit'; // lib
+import "bootstrap-icons/font/bootstrap-icons.css";
+
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

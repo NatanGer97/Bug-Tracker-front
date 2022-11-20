@@ -4,7 +4,6 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import LinkPage from "./components/LinkPage";
 import Unauthorized from "./components/Unauthorized";
-import Home from "./components/Home";
 import Editor from "./components/Editor";
 import Admin from "./components/Admin";
 import Lounge from "./components/Lounge";
@@ -14,6 +13,7 @@ import ProtectedRout from "./components/ProtectedRoute";
 import Login from "./components/Auth/Login";
 import RegisterTest from "./components/Auth/Register";
 import ActivationPanel from "./components/Auth/ActivationPanel";
+import Home from "./components/pages/Home.";
 
 
 function App() {
@@ -35,6 +35,7 @@ function App() {
           <Route path="/test" element={<p>test</p>} />
         <Route element={<RequireAuthorization allowedRoles={["User"]} />}>
           <Route path="/home" element={<Home />} />
+
         </Route>
         <Route element={<RequireAuthorization allowedRoles={["Editor"]} />}>
           <Route path="/editor" element={<Editor />} />
