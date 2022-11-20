@@ -1,14 +1,12 @@
-import { useState, useEffect } from "react";
-import Container from "react-bootstrap/Container";
-import Navbar from "react-bootstrap/Navbar";
+import { useEffect } from "react";
+
 import useAuth from "../../hooks/useAuth";
 import AuthButtons from "./components/AuthButtons";
 import BrandTitle from "./components/BrandTitle";
 import NavbarLinks from "./components/NavbarLinks";
 import SignOutBtn from "./components/SignOutBtn";
-import Dropdown from "react-bootstrap/Dropdown";
-
 import "./Navbar.css";
+import DropdownNavbar from "./components/Dropdown/DropdownNavbar";
 
 function OffcanvasNavbar() {
   const { isLogin } = useAuth();
@@ -37,47 +35,8 @@ function OffcanvasNavbar() {
           <BrandTitle title="Brand" />
           {isLogin && <NavbarLinks />}
           {isLogin === true ? <SignOutBtn /> : <AuthButtons />}
-          <div className="btn-group">
-            {/* <button className=" btn dropdown-toggle">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                class="rounded-circle"
-                style={{width: '150px'}}
-              />
-            </button> */}
-              <button
-              className="btn btn-sm  mx-2 dropdown-toggle"
-              type="button"
-              id="Dropdown"
-              data-bs-toggle="dropdown"
-              data-bs-auto-close="true"
-              aria-expanded="false"
-            >
-               <img
-                src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                className="rounded-circle "
-                style={{width: '50px'}}
-              />
-           
-            </button>
-            <ul className="dropdown-menu" aria-labelledby="Dropdown">
-              <li>
-                <a className="dropdown-item" href="#">
-                  Menu item
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Menu item
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Menu item
-                </a>
-              </li>
-            </ul>
-          </div>
+          {isLogin === true && <DropdownNavbar userName ={'username'}/>}
+         
         </div>
       </div>
     </nav>

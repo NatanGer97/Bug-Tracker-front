@@ -3,10 +3,9 @@ import React, {
   useEffect,
   useRef,
   useState,
-  useContext,
   Fragment,
 } from "react";
-import { useFormAction, useLocation, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import axios from "../../api/axios";
 
@@ -61,8 +60,8 @@ const Login = () => {
         }
       );
       if (response.status === 200) {
-        const accessToken = response?.data?.accessToken;
-        const roles = response?.data.roles;
+        const accessToken =  await response?.data?.accessToken;
+        const roles = await response?.data.roles;
         setSuccess(true);
         setAuth({ user, password, roles, accessToken });
         setIsLogin(true);

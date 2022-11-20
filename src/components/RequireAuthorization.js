@@ -3,7 +3,6 @@ import { useLocation, Navigate, Outlet, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import jwt_decode from "jwt-decode";
 
-import useDecodedToken from "../hooks/useDecodedToken";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 const RequireAuthorization = ({ allowedRoles }) => {
